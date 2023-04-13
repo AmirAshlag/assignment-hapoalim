@@ -130,3 +130,22 @@ img {
   }
 }
 
+@media only screen and (max-width: 875px) {
+  .list-page-container {
+    flex-direction: column-reverse;
+    // justify-content: center;
+    gap: 1em;
+  }
+  .character-card-container {
+    width: 90%;
+  }
+  .character-card-container{
+    justify-content: center;
+  }
+}
+
+@media only screen and (max-width: 675px) {
+  .character-card-container{
+    margin-left: 0px;
+  }
+}
