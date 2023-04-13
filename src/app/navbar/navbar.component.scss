@@ -40,8 +40,6 @@
   color: #febe08;
 }
 
-
-
 .logo{
     height: 90px;
     position: absolute;
@@ -49,3 +47,8 @@
 }
 
 
+@media only screen and (max-width: 675px) {
+  .logo{
+    display: none;
+  }
+}
