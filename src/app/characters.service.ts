@@ -16,9 +16,9 @@ export class CharactersService {
   unSavedIndexs: any = [];
   unSaved1 = -1;
   editId = -1;
-  savedUpdate = new Subject();
+  savedUpdate$ = new Subject();
   newCharacters: any = [];
-  search = new Subject();
+  search$ = new Subject();
 
   constructor(public http: HttpClient, public router: Router) {
     if (!localStorage.getItem('list')) {
@@ -42,7 +42,11 @@ export class CharactersService {
             created.push(character);
           }
         }
-        this.characters = [...created, ...this.newCharacters, ...updatedCharacters];
+        this.characters = [
+          ...created,
+          ...this.newCharacters,
+          ...updatedCharacters,
+        ];
         this.charactersCopy = this.characters;
         this.nextCharactersUrl = value.info.next;
       });
@@ -99,7 +103,7 @@ export class CharactersService {
     const list = JSON.parse(localStorage.getItem('list') || '[]');
     list.push(Character);
     localStorage.setItem('list', JSON.stringify(list));
-    this.savedUpdate.next(list);
+    this.savedUpdate$.next(list);
   }
 
   unSaveCharacter(i: number) {
@@ -114,7 +118,7 @@ export class CharactersService {
       this.unSaved1 = -1;
       this.unSavedIndexs = this.unSavedIndexs.slice(i, 1);
       localStorage.setItem('list', JSON.stringify(list));
-      this.savedUpdate.next(list);
+      this.savedUpdate$.next(list);
     }, 500);
   }
 

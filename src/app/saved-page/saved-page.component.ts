@@ -19,7 +19,7 @@ export class SavedPageComponent implements OnInit, OnDestroy {
     );
     console.log(this.charactersService.savedCharacters);
 
-    this.SavedSubscription = this.charactersService.savedUpdate.subscribe(
+    this.SavedSubscription = this.charactersService.savedUpdate$.subscribe(
       (value) => {
         this.charactersService.savedCharacters = value;
       }

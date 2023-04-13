@@ -16,7 +16,7 @@ export class SearchComponent implements OnInit, OnDestroy {
   constructor(public charactersService: CharactersService) {}
 
   ngOnInit(): void {
-    this.searchSubscription = this.charactersService.search
+    this.searchSubscription = this.charactersService.search$
       .pipe(debounceTime(500))
       .subscribe((value) => {
         console.log(value);
@@ -25,7 +25,7 @@ export class SearchComponent implements OnInit, OnDestroy {
 
   sendSearch() {
     console.log('hey');
-    this.charactersService.search.next({
+    this.charactersService.search$.next({
       searchParam: this.searchParam,
       searchString: this.searchString,
     });

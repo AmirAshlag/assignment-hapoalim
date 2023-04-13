@@ -1,8 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { CharactersService } from '../characters.service';
 import { Router } from '@angular/router';
-import { Subscription, Subject, debounceTime } from 'rxjs';
-
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-characters-list',
@@ -13,7 +12,6 @@ export class CharactersListComponent implements OnInit, OnDestroy {
   savedCharacters: any = [];
   SavedSubscription: Subscription | undefined;
   searchSubscription: Subscription | undefined;
-  checkIfSaved$ = new Subject();
 
   constructor(
     public charactersService: CharactersService,
@@ -26,32 +24,31 @@ export class CharactersListComponent implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     this.savedCharacters = JSON.parse(localStorage.getItem('list') || '[]');
     this.charactersService.getCharactersInitial(this.savedCharacters);
-    // console.log(this.savedCharacters);
 
-    this.SavedSubscription = this.charactersService.savedUpdate.subscribe(
+    this.SavedSubscription = this.charactersService.savedUpdate$.subscribe(
       (value) => {
         this.savedCharacters = value;
       }
     );
-    this.searchSubscription = this.charactersService.search.subscribe(
+    this.searchSubscription = this.charactersService.search$.subscribe(
       (value: any) => {
         this.FilterList(value.searchParam, value.searchString);
       }
     );
   }
 
-  checkIfSaved(character: any): any {
+  checkIfSaved(character: any): any { 
     let list = this.savedCharacters.filter((c: any) => {
       return c.id === character.id;
     });
-    console.log('reminder to fix this');
-
+    
     if (list.length > 0) {
       return true;
     } else {
       return false;
     }
   }
+
 
   editMode(i: number) {
     this.charactersService.editId = this.charactersService.characters[i].id;
@@ -84,7 +81,6 @@ export class CharactersListComponent implements OnInit, OnDestroy {
             ?.toLowerCase()
             .includes(searchString.toLowerCase());
         }
-        // return character[searchParam]?.includes(searchString);
       }
     );
     console.log(filterdList);
@@ -96,6 +92,6 @@ export class CharactersListComponent implements OnInit, OnDestroy {
 
   ngOnDestroy(): void {
     this.SavedSubscription?.unsubscribe();
-    this.searchSubscription?.unsubscribe()
+    this.searchSubscription?.unsubscribe();
   }
 }
