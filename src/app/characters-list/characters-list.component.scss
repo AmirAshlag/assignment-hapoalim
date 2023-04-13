@@ -51,9 +51,6 @@
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
   margin-top: 30px;
-  // top: 35px;
-  // left: 28%;
-  // position: fixed;
 }
 
 @keyframes rotation {
@@ -147,5 +144,11 @@ img {
 @media only screen and (max-width: 675px) {
   .character-card-container{
     margin-left: 0px;
+  }
+}
+
+@media only screen and (min-width: 1800px) {
+  .character-card-container {
+    width: 70%;
   }
 }
