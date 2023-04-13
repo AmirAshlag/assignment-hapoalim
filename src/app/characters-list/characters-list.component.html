@@ -1,0 +1,40 @@
+<div class="list-page-container">
+  <div
+    infiniteScroll
+    [infiniteScrollDistance]="2"
+    [infiniteScrollThrottle]="1000"
+    (scrolled)="onscroll()"
+    [scrollWindow]="false"
+    class="character-card-container"
+  >
+    <div
+      *ngFor="let character of charactersService.characters; let i = index"
+      class="character-card"
+      [ngClass]="charactersService.deletedIndexs.includes(i) ? 'deleted' : ''"
+    >
+      <img [src]="character.image" />
+      <div class="character-name">{{ character.name }}</div>
+      <hr style="opacity: 0.4;">
+      <div class="other-data">
+        <div>location: {{character.location.name}}</div>
+        <div>status: {{character.status}}</div>
+        <div>species: {{character.species}}</div>
+        <div>gender: {{character.gender}}</div>
+      </div>
+      <div class="button-container">
+        <button (click)="charactersService.deleteCharacter(i)">Delete</button>
+        <button
+          (click)="charactersService.saveCharacter(character)"
+          *ngIf="!checkIfSaved(character)"
+        >
+          Save
+        </button>
+        <button (click)="editMode(i)">Edit</button>
+      </div>
+    </div>
+    <div class="center">
+      <div *ngIf="charactersService.isLoading" class="loader"></div>
+    </div>
+  </div>
+  <router-outlet></router-outlet>
+</div>

@@ -1,0 +1,132 @@
+.list-page-container {
+  width: 100%;
+  background: url("https://www.cloudynights.com/uploads/monthly_05_2020/post-247731-0-75414100-1590243813.jpg");
+  background-size: 50% 50%;
+  min-height: 93vh;
+  padding-top: 50px;
+  padding-bottom: 20px;
+  display: flex;
+  justify-content: space-evenly;
+  padding-right: 15px;
+  box-sizing: border-box;
+}
+
+.character-name {
+  color: white;
+  font-size: large;
+  margin-top: 7px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  max-width: 50%;
+  white-space: break-spaces;
+  min-height: 38px;
+}
+
+.character-card-container {
+  margin-left: 40px;
+  display: flex;
+  width: 48.5%;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  height: 88vh;
+  overflow: scroll;
+  position: relative;
+  padding-right: 20px;
+}
+
+.left-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid rgb(255, 255, 255);
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+  margin-top: 30px;
+  // top: 35px;
+  // left: 28%;
+  // position: fixed;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.character-card {
+  padding: 15px;
+  box-sizing: border-box;
+  background-color: #512da8;
+  border-radius: 7px;
+  transition: opacity 0.5s ease-in-out;
+  max-width: 45%;
+  min-width: 330px;
+}
+
+.character-card.deleted {
+  opacity: 0;
+}
+
+button {
+  display: inline-block;
+  background-color: #00b6d7;
+  color: #fff;
+  font-size: 12px;
+  font-weight: bold;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  box-shadow: 0px 3px 0px 0px #0086a3;
+  transition: all 0.3s ease;
+  min-width: 30%;
+}
+
+button:hover {
+  background-color: #0086a3;
+  box-shadow: 0px 5px 0px 0px #005d73;
+  cursor: grab;
+}
+
+.button-container {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  margin-top: 10px;
+}
+
+img {
+  height: 300px;
+  width: 300px;
+}
+
+.other-data {
+  margin-bottom: 15px;
+  color: white;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 60px;
+}
+
+@media only screen and (max-width: 1434px) {
+  .center {
+    width: 50%;
+  }
+}
+

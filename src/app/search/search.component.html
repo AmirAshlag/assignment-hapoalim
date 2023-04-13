@@ -1,0 +1,9 @@
+<div class="search">
+  <input type="text" placeholder="Search..." class="search-input" (input)="sendSearch()" [(ngModel)]="searchString">
+  <select class="search-select" [(ngModel)]="searchParam">
+    <option value="name" selected>name</option>
+    <option value="location.name">location</option>
+    <option value="species">species</option>
+  </select>
+  <button class="search-btn" (click)="clear()">Clear</button>
+</div>

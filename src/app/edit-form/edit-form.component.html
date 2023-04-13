@@ -1,0 +1,32 @@
+<div class="form-container">
+  <h2>Get Schwifty!</h2>
+  <form [formGroup]="myForm" (ngSubmit)="submit()">
+    <label for="name">Name:</label>
+    <input type="text" id="name" name="name" required  formControlName="name"/>
+
+    <label for="species">Species:</label>
+    <input type="species" id="species" name="species" required formControlName="species"/>
+
+    <label for="type">Type:</label>
+    <input type="type" id="type" name="type" required formControlName="type"/>
+
+    <div class="select-container">
+      <select formControlName="gender">
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+      <select formControlName="status">
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+        <option value="unknown">unknown</option>
+      </select>˝
+        
+    </div>
+
+    <label for="imageUrl">image-url:</label>
+    <input type="type" id="imageUrl" name="imageUrl" required formControlName="image"/>
+
+    <button type="submit">Submit changes</button>
+    <button type="button" class="cancel-button" (click)="cancel()">cancel</button>
+  </form>
+</div>

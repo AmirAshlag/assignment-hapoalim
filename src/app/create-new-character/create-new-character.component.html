@@ -1,0 +1,208 @@
+<div class="create-page-container">
+  <form [formGroup]="characterForm" (ngSubmit)="onSubmit()">
+    <h2 class="form-title">New Character</h2>
+
+    <div class="form-group">
+      <label for="name-input" class="form-label">Name:</label>
+      <input
+        id="name-input"
+        type="text"
+        class="form-control"
+        formControlName="name"
+      />
+    </div>
+    <div
+      *ngIf="
+        characterForm.controls.name.invalid &&
+        characterForm.controls.name.touched
+      "
+      class="warning"
+    >
+      Please enter a name
+    </div>
+
+    <div class="form-group">
+      <label for="status-input" class="form-label">Status:</label>
+      <select id="status-input" class="form-control" formControlName="status">
+        <option value="" selected disabled>Select status</option>
+        <option value="Alive">Alive</option>
+        <option value="Dead">Dead</option>
+      </select>
+    </div>
+    <div
+      *ngIf="
+        characterForm.controls.status.invalid &&
+        characterForm.controls.status.touched
+      "
+      class="warning"
+    >
+      please select status
+    </div>
+
+    <div class="form-group">
+      <label for="species-input" class="form-label">Species:</label>
+      <input
+        id="species-input"
+        type="text"
+        class="form-control"
+        formControlName="species"
+      />
+    </div>
+    <div
+      *ngIf="
+        characterForm.controls.species.invalid &&
+        characterForm.controls.species.touched
+      "
+      class="warning"
+    >
+      please enter a specie
+    </div>
+
+    <div class="form-group">
+      <label for="type-input" class="form-label">Type:</label>
+      <input
+        id="type-input"
+        type="text"
+        class="form-control"
+        formControlName="type"
+      />
+    </div>
+    <div
+      *ngIf="
+        characterForm.controls.type.invalid &&
+        characterForm.controls.type.touched
+      "
+      class="warning"
+    >
+      please enter a type
+    </div>
+
+    <div class="form-group">
+      <label for="image-input" class="form-label">Image:</label>
+      <input
+        id="image-input"
+        type="text"
+        class="form-control"
+        formControlName="image"
+      />
+    </div>
+    <div
+      *ngIf="
+        characterForm.controls.image.invalid &&
+        characterForm.controls.image.touched
+      "
+      class="warning"
+    >
+      please enter an image url
+    </div>
+
+    <div class="form-group">
+      <label for="gender-input" class="form-label">Gender:</label>
+      <select id="gender-input" class="form-control" formControlName="gender">
+        <option value="" selected disabled>Select gender</option>
+        <option value="Male">Male</option>
+        <option value="Female">Female</option>
+      </select>
+    </div>
+    <div
+      *ngIf="
+        characterForm.controls.gender.invalid &&
+        characterForm.controls.gender.touched
+      "
+      class="warning"
+    >
+      Please select a gender.
+    </div>
+
+    <div formGroupName="location">
+      <div class="form-group">
+        <label for="origin-input" class="form-label">Location-Name:</label>
+        <input
+          id="origin-input"
+          type="text"
+          class="form-control"
+          formControlName="name"
+        />
+      </div>
+      <div
+        *ngIf="
+          characterForm.controls.location.controls.name.invalid &&
+          characterForm.controls.location.controls.name.touched
+        "
+        class="warning"
+      >
+        please enter enter name
+      </div>
+
+      <div class="form-group">
+        <label for="location-input" class="form-label">Location-Url:</label>
+        <input
+          id="location-input"
+          type="text"
+          class="form-control"
+          formControlName="url"
+        />
+      </div>
+      <div
+        *ngIf="
+          characterForm.controls.location.controls.url.invalid &&
+          characterForm.controls.location.controls.url.touched
+        "
+        class="warning"
+      >
+        please enter location url
+      </div>
+    </div>
+
+    <div formGroupName="origin">
+      <div class="form-group">
+        <label for="origin-input" class="form-label">Origin-Name:</label>
+        <input
+          id="origin-input"
+          type="text"
+          class="form-control"
+          formControlName="name"
+        />
+      </div>
+      <div
+        *ngIf="
+          characterForm.controls.origin.controls.name.invalid &&
+          characterForm.controls.origin.controls.name.touched
+        "
+        class="warning"
+      >
+        please enter origin Name
+      </div>
+
+      <div class="form-group">
+        <label for="location-input" class="form-label"
+          >Origin-Location-Url:</label
+        >
+        <input
+          id="location-input"
+          type="text"
+          class="form-control"
+          formControlName="url"
+        />
+      </div>
+      <div
+        *ngIf="
+          characterForm.controls.origin.controls.url.invalid &&
+          characterForm.controls.origin.controls.url.touched
+        "
+        class="warning"
+      >
+        please enter origin url
+      </div>
+    </div>
+
+    <button
+      type="submit"
+      class="btn btn-primary"
+      [disabled]="characterForm.invalid"
+      [ngClass]="characterForm.invalid ? 'disabled' : ''"
+    >
+      Submit
+    </button>
+  </form>
+</div>

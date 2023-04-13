@@ -1,0 +1,19 @@
+<div class="saved-page-container">
+    <h1 *ngIf="charactersService.savedCharacters.length === 0" class="no-characters-saved">No characters saved</h1>
+  <div class="character-card-container">
+    <div
+      *ngFor="let character of charactersService.savedCharacters; let i = index"
+      class="character-card"
+      [ngClass]="charactersService.unSavedIndexs.includes(i) || charactersService.unSaved1 == i ? 'unsaved' : ''"
+    >
+      <img [src]="character.image" />
+      <div class="character-name">{{ character.name }}</div>
+      <div class="button-container">
+        <button (click)="charactersService.unSaveCharacter(i)" type="submit">
+          unSave
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+<router-outlet></router-outlet>
