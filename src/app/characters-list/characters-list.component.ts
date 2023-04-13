@@ -37,18 +37,17 @@ export class CharactersListComponent implements OnInit, OnDestroy {
     );
   }
 
-  checkIfSaved(character: any): any { 
+  checkIfSaved(character: any): any {
     let list = this.savedCharacters.filter((c: any) => {
       return c.id === character.id;
     });
-    
+
     if (list.length > 0) {
       return true;
     } else {
       return false;
     }
   }
-
 
   editMode(i: number) {
     this.charactersService.editId = this.charactersService.characters[i].id;

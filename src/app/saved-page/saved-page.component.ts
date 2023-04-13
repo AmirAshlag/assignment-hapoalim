@@ -8,7 +8,7 @@ import { Subscription } from 'rxjs';
   styleUrls: ['./saved-page.component.scss'],
 })
 export class SavedPageComponent implements OnInit, OnDestroy {
-  characters: any = [];
+
   SavedSubscription: Subscription | undefined;
 
   constructor(public charactersService: CharactersService) {}
