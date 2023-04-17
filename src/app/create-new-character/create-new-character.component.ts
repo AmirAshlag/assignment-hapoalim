@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { CharactersService } from '../characters.service';
 
+
 @Component({
   selector: 'app-create-new-character',
   templateUrl: './create-new-character.component.html',
@@ -33,6 +34,7 @@ export class CreateNewCharacterComponent {
     const formValues: any = {
       ...this.characterForm.value,
       created: currentDate,
+      id: Math.random()
     };
     this.charactersService.addNewCharacter(formValues);
   }

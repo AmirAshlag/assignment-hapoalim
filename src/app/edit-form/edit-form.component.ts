@@ -51,7 +51,7 @@ export class EditFormComponent implements OnInit {
           return character;
         }
       }
-    );
+    )
     this.router.navigate(['characters']);
   }
 
