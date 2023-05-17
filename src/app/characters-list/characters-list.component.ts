@@ -24,6 +24,7 @@ export class CharactersListComponent implements OnInit, OnDestroy {
   async ngOnInit(): Promise<void> {
     this.savedCharacters = JSON.parse(localStorage.getItem('list') || '[]');
     this.charactersService.getCharactersInitial(this.savedCharacters);
+    
 
     this.SavedSubscription = this.charactersService.savedUpdate$.subscribe(
       (value) => {

@@ -36,14 +36,14 @@ export class CharactersService {
           );
           return savedCharacter ? savedCharacter : character;
         });
-        let created = [];
-        for (let character of savedList) {
-          if (!character.episode) {
-            created.push(character);
-          }
-        }
+        // let created = [];
+        // for (let character of savedList) {
+        //   if (!character.episode) {
+        //     created.push(character);
+        //   }
+        // }
         this.characters = [
-          ...created,
+          // ...created,
           ...this.newCharacters,
           ...updatedCharacters,
         ];

@@ -33,6 +33,8 @@
   overflow: scroll;
   position: relative;
   padding-right: 20px;
+  padding-top: 5px;
+  padding-left: 8px;
 }
 
 .left-container {
@@ -67,7 +69,7 @@
   box-sizing: border-box;
   background-color: #512da8;
   border-radius: 7px;
-  transition: opacity 0.5s ease-in-out;
+  transition: all 0.5s ease-in-out;
   max-width: 45%;
   min-width: 330px;
 }
@@ -142,7 +144,7 @@ img {
 }
 
 @media only screen and (max-width: 675px) {
-  .character-card-container{
+  .character-card-container {
     margin-left: 0px;
     padding-right: 0px;
   }
@@ -152,4 +154,12 @@ img {
   .character-card-container {
     width: 70%;
   }
+}
+
+.character-card:hover {
+  // border: 2px solid gold;
+  box-shadow: 0 0 35px gold;
+  z-index: 3;
+  transform: translateY(-3px);
+  cursor: pointer;
 }

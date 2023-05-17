@@ -51,7 +51,21 @@ export class EditFormComponent implements OnInit {
           return character;
         }
       }
-    )
+    );
+    const holder =
+      this.charactersService.savedCharacters.map((character: any) => {
+        if (character.id == this.myForm.get('id')?.value) {
+          return { ...character, ...this.myForm.value };
+        } else {
+          return character;
+        }
+      });
+    console.log(this.charactersService.savedCharacters);
+
+    localStorage.setItem(
+      'list',
+      JSON.stringify(holder)
+    );
     this.router.navigate(['characters']);
   }
 
